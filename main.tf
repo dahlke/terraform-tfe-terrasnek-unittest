@@ -10,9 +10,14 @@ variable "org_name" {
   type = string
 }
 
-resource "tfe_organization" "org" {
-  email = "${var.email}"
+data "tfe_organization" "org" {
   name = "${var.org_name}"
+}
+
+resource "tfe_variable_set" "test" {
+  name          = "Test Varset"
+  description   = "Some description."
+  organization  = tfe_organization.org.name
 }
 
 output "org_id" {
