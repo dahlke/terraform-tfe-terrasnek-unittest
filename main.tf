@@ -17,9 +17,9 @@ data "tfe_organization" "org" {
 resource "tfe_variable_set" "test" {
   name          = "Test Varset"
   description   = "Some description."
-  organization  = tfe_organization.org.name
+  organization  = data.tfe_organization.org.name
 }
 
 output "org_id" {
-  value = "${tfe_organization.org.id}"
+  value = "${data.tfe_organization.org.id}"
 }
