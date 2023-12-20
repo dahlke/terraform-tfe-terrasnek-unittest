@@ -3,11 +3,11 @@ provider "tfe" {
 }
 
 variable "email" {
-  type = "string"
+  type = string
 }
 
 variable "org_name" {
-  type = "string"
+  type = string
 }
 
 resource "tfe_organization" "org" {
